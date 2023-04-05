@@ -10,10 +10,7 @@ When you enter a deck, it will bury cards automatically.
 
 
 
-You can configure it in deck options and addon config.
+You can configure it in deck options.
 
-
-<img src="https://user-images.githubusercontent.com/17523591/229984009-843932da-4c6d-400d-9763-41d857911cf0.png" width="700" >
-
-<img src="https://user-images.githubusercontent.com/17523591/229984020-4384ed89-67e3-49ee-aefe-c27e6347e9bb.png" width="700" >
+![config](https://user-images.githubusercontent.com/17523591/230069231-e88779e1-a950-4260-9b0d-4a4cf3514ba2.png)
 
