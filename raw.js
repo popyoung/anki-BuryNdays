@@ -1,11 +1,11 @@
 function setup(options) {
     const store = options.auxData();
-    // const boolInput = document.getElementById("myBool");
+    const boolInput = document.getElementById("acrossDecks");
     const numberInput = document.getElementById("buryInterval");
   
     // update html when state changes
     store.subscribe((data) => {
-    //   boolInput.checked = data["myBoolKey"];
+      boolInput.checked = data["acrossDecks"];
       numberInput.value = data["buryInterval"];
   
       // and show current data for debugging
@@ -17,11 +17,11 @@ function setup(options) {
     });
   
     // update config when check state changes
-    // boolInput.addEventListener("change", (_) =>
-    //   store.update((data) => {
-    //     return { ...data, myBoolKey: boolInput.checked };
-    //   })
-    // );
+    boolInput.addEventListener("change", (_) =>
+      store.update((data) => {
+        return { ...data, acrossDecks: boolInput.checked };
+      })
+    );
     numberInput.addEventListener("change", (_) => {
       let number = 0;
       try {
