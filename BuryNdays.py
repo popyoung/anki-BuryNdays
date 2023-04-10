@@ -29,8 +29,10 @@ def autobury(self):
             # print(dir(mw.col.get_note(card.nid)))
             # print(card.id, card.nid)
             note = card.note()
+            sfld=note.fields[note.note_type()["sortf"]].replace('"', '""').replace("'", "''")
             # print(note.id,note.fields,note.data,note.items)
-            # print(note.fields[note.note_type()["sortf"]])
+            # print(sfld)
+
             # pprint(dir(note))
             # return
             did = card.did
@@ -42,7 +44,7 @@ def autobury(self):
             acrossDecks = mw.col.decks.config_dict_for_deck_id(did).get("acrossDecks", False)
             # print(acrossDecks)
             dbstr = f"""SELECT id FROM cards WHERE id != {card.id} AND
-                (nid = {card.nid} OR nid IN (SELECT id FROM notes WHERE sfld = "{note.fields[note.note_type()["sortf"]]}"))"""
+                (nid = {card.nid} OR nid IN (SELECT id FROM notes WHERE sfld = "{sfld}"))"""
             if (not acrossDecks):
                 dbstr += f""" AND did = {card.did}"""
             if ((card.queue == 0 and newbury) or (card.queue == 2 and revbury)):
